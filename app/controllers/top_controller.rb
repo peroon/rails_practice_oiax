@@ -4,5 +4,6 @@ class TopController < ApplicationController
   end
 
   def about
+    @page_title = 'about page title'
   end
 end
