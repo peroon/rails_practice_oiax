@@ -1,0 +1,21 @@
+<% if @members.present? %>
+  <table class="list">
+    <tr>
+      <th>number</th>
+      <th>nickname</th>
+      <th>name</th>
+      <th>operation</th>
+    </tr>
+
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.number %></td>
+        <td><%= member.name %></td>
+        <td><%= member.full_name %></td>
+        <td><%= member.full_name %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
