@@ -10,9 +10,12 @@
     <% @members.each do |member| %>
       <tr>
         <td><%= member.number %></td>
-        <td><%= member.name %></td>
+        <td><%= link_to member.name, member %></td>
         <td><%= member.full_name %></td>
-        <td><%= member.full_name %></td>
+        <td>
+          <%= link_to 'edit', [:edit, member] %>
+          <%= link_to 'delete', member, method: :delete, confirm: 'really delete?' %>
+      </td>
       </tr>
     <% end %>
   </table>
