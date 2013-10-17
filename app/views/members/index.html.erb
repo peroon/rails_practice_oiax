@@ -1,5 +1,13 @@
 <%= link_to 'new member', :new_member %>
 
+<%= form_tag :search_members, method: :get do %>
+  <p>
+    <%= text_field_tag 'q', params[:q] %>
+    <%= submit_tag 'search' %>
+  </p>
+<% end %>
+  
+
 <% if @members.present? %>
   <table class="list">
     <tr>
