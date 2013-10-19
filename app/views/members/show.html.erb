@@ -1,0 +1,34 @@
+<h1>Member Detail</h1>
+
+<%= link_to 'edit', [:edit, @member] %>
+
+<table class="attr">
+
+  <tr>
+    <th>number</th>
+    <td><%= @member.number %></td>
+  </tr>
+  
+  <tr>
+    <th>full_name</th>
+    <td><%= @member.full_name %></td>
+  </tr>
+
+  <tr>
+    <th>gender</th>
+    <td><%= @member.gender %></td>
+  </tr>
+  <tr>
+    <th>birthday</th>
+    <td><%= @member.birthday %></td>
+  </tr>
+
+  <tr>
+    <th>email</th>
+    <td><%= @member.email %></td>
+  </tr>
+
+  <tr>
+    <th>administrator</th>
+    <td><%= @member.administrator %></td>
+  </tr>
