@@ -10,6 +10,11 @@
   </tr>
   
   <tr>
+    <th>name</th>
+    <td><%= @member.name %></td>
+  </tr>
+
+  <tr>
     <th>full_name</th>
     <td><%= @member.full_name %></td>
   </tr>
@@ -18,9 +23,15 @@
     <th>gender</th>
     <td><%= @member.gender %></td>
   </tr>
+
   <tr>
     <th>birthday</th>
-    <td><%= @member.birthday %></td>
+    <td>
+      <%= @member.birthday %>
+      (
+      <%= @member.birthday.try(:strftime, "%Y年%m月%d日") %>
+      )
+    </td>
   </tr>
 
   <tr>
@@ -32,3 +43,4 @@
     <th>administrator</th>
     <td><%= @member.administrator %></td>
   </tr>
+</table>
