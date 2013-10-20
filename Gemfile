@@ -46,3 +46,9 @@ gem 'jbuilder', '~> 1.2'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
