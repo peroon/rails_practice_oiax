@@ -16,9 +16,26 @@ class MembersController < ApplicationController
   end
 
   def create
+    @member = Member.new(member_params)
+    if @member.save
+      redirect_to @member, notice: "member registered."
+    else
+      render 'new'
+    end
+  end
+
+  def member_params
+    params.require(:member).permit(:number, :name, :full_name, :gender, :birthday, :email, :administrator)
   end
   
   def update
+    @member = Member.find(params[:id])
+    @member.assign_attributes(member_params)
+    if @member.save
+      redirect_to @member, notice: 'member updated.'
+    else
+      render 'edit'
+    end
   end
   
   def destroy
