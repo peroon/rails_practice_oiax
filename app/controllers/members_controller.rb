@@ -39,6 +39,9 @@ class MembersController < ApplicationController
   end
   
   def destroy
+    @member = Member.find(params[:id])
+    @member.destroy
+    redirect_to :members, notice: 'member deleted.'
   end
 
   def search
