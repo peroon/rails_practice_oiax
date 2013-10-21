@@ -1,5 +1,4 @@
 FactoryGirl.define do
-=begin
   factory :member do
     sequence(:number){|n| n+1}
     sequence(:name){|n| "Taro#{n}"}
@@ -7,5 +6,4 @@ FactoryGirl.define do
     sequence(:email){|n| "taro#{n}@example.com"}
     birthday 30.years.ago
   end
-=end
 end
