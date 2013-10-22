@@ -1,5 +1,9 @@
 <%= link_to 'new member', :new_member %>
 
+<div id="aaa">
+  <h2>aaa</h2>
+</div>
+
 <%= form_tag :search_members, method: :get do %>
   <p>
     <%= text_field_tag 'q', params[:q] %>
