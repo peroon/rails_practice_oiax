@@ -1,10 +1,12 @@
 class MembersController < ApplicationController
   def index
     @members = Member.order("number")
+    session[:user_id] = rand 1000
   end
 
   def show
     @member = Member.find(params[:id])
+    @user_id = session[:user_id]
   end
 
   def new
