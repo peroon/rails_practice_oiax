@@ -46,4 +46,14 @@ cookie_id : <%= @cookie_id %><br>
     <th>administrator</th>
     <td><%= @member.administrator %></td>
   </tr>
+
+  <tr>
+    <th>hashed_password</th>
+    <td><%= @member.hashed_password %></td>
+  </tr>
+
+  <tr>
+    <th>password_digest</th>
+    <td><%= @member.password_digest %></td>
+  </tr>
 </table>
