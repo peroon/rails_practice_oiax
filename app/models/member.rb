@@ -1,8 +1,10 @@
 class Member < ActiveRecord::Base
   has_secure_password
 
+=begin
   attr_accessor :password, :password_confirmation
   validates :password, presence: {on: :create}, confirmation: {allow_blank: true}
+=end
 
   validates :number, presence: true, uniqueness: true,
     numericality: {only_integer: true,
@@ -16,9 +18,9 @@ class Member < ActiveRecord::Base
     uniqueness: {case_sensitive: false}
 
   validates :full_name, length: {maximum: 20}
-
   validates_email_format_of :email
 
+=begin
   def password=(val)
     if val.present?
       #self.hashed_password = BCrypt::Password.create(val)
@@ -28,6 +30,7 @@ class Member < ActiveRecord::Base
     end
     @password = val
   end
+=end
 
   class << self
     def search(query)
