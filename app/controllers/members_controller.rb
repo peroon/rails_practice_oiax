@@ -29,7 +29,10 @@ class MembersController < ApplicationController
   end
 
   def member_params
-    params.require(:member).permit(:number, :name, :full_name, :gender, :birthday, :email, :administrator)
+    params.require(:member).permit(
+      :number, :name, :full_name, :gender, 
+      :birthday, :email, :administrator, 
+      :password, :password_confirmation)
   end
   
   def update
