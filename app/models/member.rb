@@ -43,11 +43,11 @@ class Member < ActiveRecord::Base
 
     #authenticate
     def authenticate(email, password)
-      member = find_by_name(email)
+      member = find_by_email(email)
       if member
         return member.authenticate(password) #model
       else
-        return null
+        return nil
       end
     end
   end

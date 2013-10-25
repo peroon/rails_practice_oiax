@@ -5,3 +5,9 @@
   <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
   <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
 </div>
+
+<% if @current_member %>
+  login now
+<% else %>
+  not login
+<% end %>

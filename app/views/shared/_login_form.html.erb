@@ -1,14 +1,19 @@
 <h2>login form</h2>
 
+<% if flash.alert %>
+  <%= flash.alert %>
+<% end %>
+
+<%= form_tag :session do %>
 <table id="login_form">
   <tr>
-    <td align="right">user name</td>
-    <td><input type="text" size="16" style="width:120px;"></td>
+    <td align="right">email</td>
+    <td><%= text_field_tag 'email', '', style:'width:120px' %></td>
   </tr>
 
   <tr>
     <td align="right">password</td>
-    <td><input type="text" size="16" style="width:120px;"></td>
+    <td><%= text_field_tag 'password', '', style:'width:120px' %></td>
   </tr>
 
   <tr>
@@ -17,5 +22,7 @@
     </td>
   </tr>
 </table>
+<%= hidden_field_tag 'from', request.path %>
+<% end %>
 
 
