@@ -2,8 +2,11 @@
   <%= menu_link_to "TOP", root_path %>&nbsp;|&nbsp;
   <%= menu_link_to "News", root_path %>&nbsp;|&nbsp;
   <%= menu_link_to "Blog", root_path %>&nbsp;|&nbsp;
-  <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
-  <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
+  <% if @current_member %>
+    <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
+    <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
+    <%= link_to 'log out', :session, method: :delete, confirm: 'log out?' %>
+  <% end %>
 </div>
 
 <% if @current_member %>
