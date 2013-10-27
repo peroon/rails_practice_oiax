@@ -1,8 +1,11 @@
 class Article < ActiveRecord::Base
   scope :member_only, where(member_only: true)
-  scope :readable,
-    ->{now = Time.current
-       where("released_at <= ? AND (? < expired_at OR expired_at IS NULL)", now, now)}
+
+  scope :readable_for,
+    ->(member){
+      now = Time.current
+      rel = where("released_at <= ? AND (? < expired_at OR expired_at IS NULL)", now, now)
+      member.kind_of?(Member) ? rel : rel.where(:member_only => false) }
   
   before_validation :clear_expired_at
 

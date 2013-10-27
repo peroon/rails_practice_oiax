@@ -3,7 +3,7 @@
 <%= textBlue("blue text") %>
 
 <p><%= link_to "Home", root_path %></p>
-<p><%= link_to "Home(Confirm)", root_path, confirm: "Really?" %></p>
+<p><%= link_to "Home(Confirm)", root_path, data:{confirm: "Really?"} %></p>
 <p><%= link_to "Home", root_path, class: "myClass" %></p>
 <br>
 link_to_unless_current

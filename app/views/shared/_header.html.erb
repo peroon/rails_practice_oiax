@@ -6,7 +6,7 @@
     <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
     <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
     こんにちは <%= @current_member.name %> さん！
-    <%= link_to 'log out', :session, method: :delete, confirm: 'log out?' %>
+    <%= link_to 'log out', :session, method: :delete, data:{confirm: 'log out?'} %>
   <% end %>
 </div>
 
