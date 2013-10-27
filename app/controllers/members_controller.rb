@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  before_filter :login_required
+
   def index
     @members = Member.order("number")
     session[:user_id] = rand 1000
