@@ -1,4 +1,6 @@
-<%= render "shared/login_form" %>
+<% unless @current_member %>
+  <%= render "shared/login_form" %>
+<% end %>
 
 <h2>news</h2>
 <ul
