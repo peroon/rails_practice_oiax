@@ -4,7 +4,8 @@ class Article < ActiveRecord::Base
   scope :readable_for,
     ->(member){
       now = Time.current
-      rel = where("released_at <= ? AND (? < expired_at OR expired_at IS NULL)", now, now)
+      #rel = where("released_at <= ? AND (? < expired_at OR expired_at IS NULL)", now, now)
+      rel = where("")
       member.kind_of?(Member) ? rel : rel.where(:member_only => false) }
   
   before_validation :clear_expired_at
@@ -32,8 +33,8 @@ class Article < ActiveRecord::Base
   end
 
   class << self
-    def sidebar_articles(num=5)
-      Article.all
+    def sidebar_articles(member, num=5)
+      readable_for(member).order("released_at DESC").limit(num)
     end
   end
 end

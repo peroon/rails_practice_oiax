@@ -3,7 +3,7 @@
 <% end %>
 
 <h2>articles</h2>
-<% Article.sidebar_articles(5).each do |article| %>
+<% Article.sidebar_articles(@current_member, 5).each do |article| %>
   <%= link_to article.title, article %><br>
 <% end %>
 
