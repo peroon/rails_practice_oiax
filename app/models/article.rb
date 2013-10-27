@@ -27,5 +27,11 @@ class Article < ActiveRecord::Base
   def clear_expired_at
     self.expired_at = nil if @no_expiration
   end
+
+  class << self
+    def sidebar_articles(num=5)
+      Article.all
+    end
+  end
 end
 
