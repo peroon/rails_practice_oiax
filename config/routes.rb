@@ -14,6 +14,14 @@ RailsPracticeOiax::Application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
+  namespace :admin do
+    root to: "top#index"
+    resources :member do
+      collection {get "search"}
+    end
+    resources :articles
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
