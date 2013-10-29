@@ -16,7 +16,7 @@ RailsPracticeOiax::Application.routes.draw do
 
   namespace :admin do
     root to: "top#index"
-    resources :member do
+    resources :members do
       collection {get "search"}
     end
     resources :articles

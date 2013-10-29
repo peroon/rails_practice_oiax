@@ -1,0 +1,52 @@
+<table class="attr">
+
+  <tr>
+    <th>number</th>
+    <td><%= @member.number %></td>
+  </tr>
+  
+  <tr>
+    <th>name</th>
+    <td><%= @member.name %></td>
+  </tr>
+
+  <tr>
+    <th>full_name</th>
+    <td><%= @member.full_name %></td>
+  </tr>
+
+  <tr>
+    <th>gender</th>
+    <td><%= @member.gender %></td>
+  </tr>
+
+  <tr>
+    <th>birthday</th>
+    <td>
+      <%= @member.birthday %>
+      (
+      <%= @member.birthday.try(:strftime, "%Y年%m月%d日") %>
+      )
+    </td>
+  </tr>
+
+  <tr>
+    <th>email</th>
+    <td><%= @member.email %></td>
+  </tr>
+
+  <tr>
+    <th>administrator</th>
+    <td><%= @member.administrator %></td>
+  </tr>
+
+  <tr>
+    <th>hashed_password</th>
+    <td><%= @member.hashed_password %></td>
+  </tr>
+
+  <tr>
+    <th>password_digest</th>
+    <td><%= @member.password_digest %></td>
+  </tr>
+</table>

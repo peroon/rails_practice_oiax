@@ -1,0 +1,69 @@
+<%= render 'shared/errors', obj: @member %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :number, 'number' %></th>
+    <td><%= form.text_field :number, size: 8 %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :name, 'name' %></th>
+    <td><%= form.text_field :name %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :full_name, 'full_name' %></th>
+    <td><%= form.text_field :full_name %></td>
+  </tr>
+
+  <tr>
+    <th>gender</th>
+    <td>
+      <%= form.radio_button :gender, 0 %>
+      <%= form.label :gender_0, "man" %>
+      <%= form.radio_button :gender, 1 %>
+      <%= form.label :gender_1, "woman" %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :birthday, 'birthday', for: 'member_birthday_li' %></th>
+    <td>
+      <%= form.date_select :birthday,
+        start_year: 1940, end_year: Time.now.year,
+        use_month_numbers: true %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :email, 'email' %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+
+  <tr>
+    <th>admin</th>
+    <td>
+      <%= form.check_box :administrator %>
+      <%= form.label :administrator, 'admin' %>
+    </td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :password %></th>
+    <td><%= form.password_field :password %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :password_confirmation %></th>
+    <td><%= form.password_field :password_confirmation %></td>
+  </tr>
+  <% unless @member.new_record? %>
+    パスワードを変更しないときは、入力欄を空にしてください
+  <% end %>
+
+</table>
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+<h1>Edit Member</h1>
+
+<%= form_for [:admin, @member] do |form| %>
+  <%= render 'form', form: form %>
+  <p><%= form.submit %></p>
+<% end %>

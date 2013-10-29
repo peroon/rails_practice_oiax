@@ -1,0 +1,48 @@
+<%= link_to 'new member', :new_admin_member %>
+
+<div id="aaa">
+  <h2>aaa</h2>
+</div>
+
+<div id="image">
+  <br>
+</div>
+
+<div id="erb">
+  <br>
+</div>
+
+<%= form_tag :search_admin_members, method: :get do %>
+  <p>
+    <%= text_field_tag 'q', params[:q] %>
+    <%= submit_tag 'search' %>
+  </p>
+<% end %>
+  
+
+<% if @members.present? %>
+  <table class="list">
+    <tr>
+      <th>number</th>
+      <th>nickname</th>
+      <th>name</th>
+      <th>email</th>
+      <th>operation</th>
+    </tr>
+
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.number %></td>
+        <td><%= link_to member.name, [:admin, member] %></td>
+        <td><%= member.full_name %></td>
+        <td><%= member.email %></td>
+        <td>
+          <%= link_to 'edit', [:edit, :admin, member] %>
+          <%= link_to 'delete', member, method: :delete, data:{confirm: 'really delete?'} %>
+      </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+
