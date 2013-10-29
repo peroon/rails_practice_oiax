@@ -7,6 +7,7 @@ RailsPracticeOiax::Application.routes.draw do
   get "lesson/:action(/:name)" => "lesson"
 
   resources :members do
+  #resources :members, only: [:index, :show] do
     collection {get "search"} #added method p195
   end
 
