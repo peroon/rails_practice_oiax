@@ -1,0 +1,26 @@
+<h1>form</h1>
+
+<%= form.label :title %>
+<%= form.text_field :title, size: 20 %>
+
+<br>
+<%= form.label :body %>
+<%= form.text_area :body, rows:10, cols:40 %>
+
+<br>
+<%= form.label :released_at %>
+<%= form.datetime_select :released_at %>
+
+<br>
+<%= form.label :expired_at %>
+<%= form.datetime_select :expired_at %>
+
+<br>
+<%= form.check_box :no_expiration %>
+<%= form.label :no_expiration %>
+
+<br>
+<%= Article.human_attribute_name(:member_only) %>
+<%= form.check_box :member_only%>
+<%= form.label :member_only %>
+
