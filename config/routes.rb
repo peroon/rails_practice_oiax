@@ -11,7 +11,7 @@ RailsPracticeOiax::Application.routes.draw do
     collection {get "search"} #added method p195
   end
 
-  resources :articles
+  resources :articles, only: [:index, :show]
 
   resource :session, only: [:create, :destroy]
 

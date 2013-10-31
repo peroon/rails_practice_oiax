@@ -1,0 +1,6 @@
+<h1>article new</h1>
+
+<%= form_for [:admin, @article] do |form| %>
+  <%= render 'form', form: form %>
+  <p><%= form.submit %></p>
+<% end %>

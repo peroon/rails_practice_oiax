@@ -1,0 +1,19 @@
+<h1>articles</h1>
+
+<p>
+  <%= link_to 'new article', :new_admin_article %>
+</p>
+
+<% if @articles.present? %>
+  <% @articles.each do |article| %>
+    <%= link_to article.title, [:admin, article] %><br>
+    <%= link_to 'edit', [:edit, :admin, article] %><br>
+    <%= link_to 'delete', [:admin, article], method: :delete, confirm: 'really?' %><br>
+    <hr>
+  <% end %>
+<% else %>
+    no news
+<% end %>
+    
+
+
