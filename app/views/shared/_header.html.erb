@@ -11,12 +11,17 @@
   <%= menu_link_to "TOP", root_path %>&nbsp;|&nbsp;
   <%= menu_link_to "Articles", :articles %>&nbsp;|&nbsp;
   <%= menu_link_to "Blog", root_path %>&nbsp;|&nbsp;
-  <% if @current_member %>
-    <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
-    <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
-    こんにちは <%= @current_member.name %> さん！
-    <%= link_to 'log out', :session, method: :delete, data:{confirm: 'log out?'} %>
-  <% end %>
+
+  <div style="background-color="yellow">
+    <% if @current_member %>
+      <%= menu_link_to "Members", :members %>&nbsp;|&nbsp;
+      <%= menu_link_to "Management", root_path %>&nbsp;|&nbsp;
+      こんにちは <%= link_to @current_member.name, :account  %> さん！
+      member_id : <%= @current_member.id %>
+      <%= link_to 'log out', :session, method: :delete, data:{confirm: 'log out?'} %>
+    <% end %>
+  </div>
+
 </div>
 
 <% if @current_member %>

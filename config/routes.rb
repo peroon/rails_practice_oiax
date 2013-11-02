@@ -13,6 +13,8 @@ RailsPracticeOiax::Application.routes.draw do
 
   resources :articles, only: [:index, :show]
 
+  resource :account, only: [:show, :edit, :update]
+
   resource :session, only: [:create, :destroy]
 
   namespace :admin do

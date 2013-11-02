@@ -1,10 +1,21 @@
 <%= render 'shared/errors', obj: @member %>
 
 <table class="attr">
-  <tr>
-    <th><%= form.label :number, 'number' %></th>
-    <td><%= form.text_field :number, size: 8 %></td>
-  </tr>
+
+  <% if controller.kind_of?(Admin::MembersController) %>
+    <tr>
+      <th><%= form.label :number, 'number' %></th>
+      <td><%= form.text_field :number, size: 8 %></td>
+    </tr>
+
+    <tr>
+      <th><%= Member.human_attribute_name(:administrator) %></th>
+      <td>
+        <%= form.check_box :administrator %>
+        <%= form.label :administrator %>
+     </td>
+    </tr>
+  <% end %>
 
   <tr>
     <th><%= form.label :name, 'name' %></th>
