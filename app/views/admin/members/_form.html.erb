@@ -2,6 +2,29 @@
 
 <table class="attr">
 
+  <h3>img upload start</h3>
+  <%= form.fields_for :image do |imgf| %>
+    <%= imgf.label :uploaded_image %><br>
+
+      <%= imgf.file_field :uploaded_image %>
+
+      <% if !imgf.object.new_record? && imgf.object.errors.empty? %>
+        image exist.
+        <div>
+          <%= member_image_tag @member %>
+          <%= imgf.check_box :_destroy %>
+          <%= imgf.label :_destroy %>
+          <%= imgf.hidden_field :id %>
+        </div>
+      <% else %>
+        <div>
+          image not exist.
+        </div>
+      <% end %>
+    <% end %>
+
+    <h3>img upload end</h3>
+
   <% if controller.kind_of?(Admin::MembersController) %>
     <tr>
       <th><%= form.label :number, 'number' %></th>

@@ -21,7 +21,7 @@ module ApplicationHelper
         path
       )
     else
-      ""
+      "member image tag empty"
     end
   end
 end

@@ -1,6 +1,6 @@
 <h1>account edit</h1>
 
-<%= form_for @member, url: :account do |form| %>
+<%= form_for @member, url: :account, html: {multipart: true} do |form| %>
   <%= render 'admin/members/form', form: form %>
   <%= form.submit %>
 <% end %>

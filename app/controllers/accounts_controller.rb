@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
 
   def edit
     @member = @current_member
+    @member.build_image unless @member.image
   end
 
   def update

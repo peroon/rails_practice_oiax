@@ -14,10 +14,12 @@ class Admin::MembersController < Admin::Base
 
   def new
     @member = Member.new(birthday: Date.new(1980, 1, 1))
+    @member.build_image
   end
 
   def edit
     @member = Member.find(params[:id])
+    @member.build_image unless @member.image
   end
 
   def create
@@ -33,16 +35,30 @@ class Admin::MembersController < Admin::Base
     params.require(:member).permit(
       :number, :name, :full_name, :gender, 
       :birthday, :email, :administrator, 
-      :password, :password_confirmation)
+      :password, :password_confirmation,
+
+      image_attributes: [:uploaded_image]
+    )
   end
   
   def update
+    p params[:member]
+
+    logger.debug 'A'
+    logger.debug 'A'
+    logger.debug 'A'
+    logger.debug 'A'
+    logger.debug 'A'
+    logger.debug 'A'
+    logger.debug 'params[:member]'
+    logger.debug params[:member]
+
     @member = Member.find(params[:id])
     @member.assign_attributes(member_params)
     if @member.save
       redirect_to [:admin, @member], notice: 'member updated.'
     else
-      render 'edit'
+      render 'edit', notice: 'member not updated...'
     end
   end
   

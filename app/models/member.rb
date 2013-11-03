@@ -3,6 +3,8 @@ class Member < ActiveRecord::Base
 
   has_one :image, class_name: "MemberImage", dependent: :destroy
 
+  accepts_nested_attributes_for :image, allow_destroy: true
+
 =begin
   attr_accessor :password, :password_confirmation
   validates :password, presence: {on: :create}, confirmation: {allow_blank: true}
