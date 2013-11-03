@@ -9,7 +9,10 @@ RailsPracticeOiax::Application.routes.draw do
   resources :members do
   #resources :members, only: [:index, :show] do
     collection {get "search"} #added method p195
+    resources :entries, only: [:index]
   end
+  resources :entries
+
 
   resources :articles, only: [:index, :show]
 

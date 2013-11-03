@@ -1,4 +1,19 @@
 class MemberImage < ActiveRecord::Base
+  validate :check_image
+  def check_image
+    if @uploaded_image
+      if data.size > 64.kilobytes
+        errors.add(:uploaded_image, :too_big_image)
+      end
+
+      unless IMAGE_TYPES.has_key?(content_type)
+        errors.add(:uploaded_image, :invalid_image)
+      end
+    end
+  end
+
+
+
   belongs_to :member
 
   IMAGE_TYPES = {

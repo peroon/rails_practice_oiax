@@ -21,3 +21,26 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    models:
+      member: 'member'
+      article: 'article'
+      member_image: 'member_image'
+      entry: 'entry'
+    attributes:
+      entry:
+        title: 'title'
+        body: 'body'
+        posted_at: 'posted_at'
+        status: 'status'
+        status_draft: 'status_draft'
+        status_member_only: 'status_member_only'
+        status_public: 'status_public'
+
+errors:
+  messages:
+    invalid_member_name: 'invalid_member_name'
+    expired_at_too_old: 'expired_at_too_old'
+    too_big_image: 'too_big_image'
+    invalid_image: 'invalid_image'
+

@@ -1,0 +1,6 @@
+<% @entries.each do |entry| %>
+  <%= entry.title %>
+  <%= truncate(entry.body) %><br>
+  <%= link_to 'read more', entry %>
+<% end %>
+<%= will_paginate @entries %>

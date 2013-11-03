@@ -1,6 +1,8 @@
 class Member < ActiveRecord::Base
   has_secure_password
 
+  has_many :entries, dependent: :destroy
+
   has_one :image, class_name: "MemberImage", dependent: :destroy
 
   accepts_nested_attributes_for :image, allow_destroy: true

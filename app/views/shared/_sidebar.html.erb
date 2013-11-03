@@ -16,7 +16,9 @@
 
 <h2>members blog</h2>
 <ul>
-  <% 3.times do |i| %>
-    <li><%= link_to "blog title", "#" %></li>
+  <% Entry.sidebar_entries(@current_member, 5).each do |entry| %>
+    <li>
+      <%= link_to entry.title, entry %> by <%= link_to entry.author.name, [entry.author, :entries] %>
+    </li>
   <% end %>
 </ul>

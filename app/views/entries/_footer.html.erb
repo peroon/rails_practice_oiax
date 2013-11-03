@@ -1,0 +1,7 @@
+<h3>entry footer</h3>
+
+<% if @current_member %>
+  <%= Entry.status_text(entry.status) %>
+  <%= link_to 'edit', [:edit, entry] %>
+  <%= link_to 'delete', [:delete, entry, method: :delete, confirm: 'really?'] %>
+<% end %>
