@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131027085126) do
+ActiveRecord::Schema.define(version: 20131103062501) do
 
   create_table "articles", force: true do |t|
     t.string   "title",                       null: false
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20131027085126) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "member_images", force: true do |t|
+    t.integer  "member_id",    null: false
+    t.binary   "data"
+    t.string   "content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "member_images", ["member_id"], name: "index_member_images_on_member_id"
 
   create_table "members", force: true do |t|
     t.integer  "number",                          null: false

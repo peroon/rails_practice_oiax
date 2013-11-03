@@ -13,4 +13,15 @@ module ApplicationHelper
     link_to_unless_current(text, path){ content_tag(:span, text) }
   end
 
+  def member_image_tag(member, options={})
+    if member.image.present?
+      path = member_path(member, format: member.image.extension)
+      link_to(
+        image_tag(path),
+        path
+      )
+    else
+      ""
+    end
+  end
 end

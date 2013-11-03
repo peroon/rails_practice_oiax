@@ -1,6 +1,8 @@
 class Member < ActiveRecord::Base
   has_secure_password
 
+  has_one :image, class_name: "MemberImage", dependent: :destroy
+
 =begin
   attr_accessor :password, :password_confirmation
   validates :password, presence: {on: :create}, confirmation: {allow_blank: true}
