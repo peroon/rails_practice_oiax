@@ -37,22 +37,11 @@ class Admin::MembersController < Admin::Base
       :birthday, :email, :administrator, 
       :password, :password_confirmation,
 
-      image_attributes: [:uploaded_image]
+      image_attributes: [:uploaded_image] #memer_image
     )
   end
   
   def update
-    p params[:member]
-
-    logger.debug 'A'
-    logger.debug 'A'
-    logger.debug 'A'
-    logger.debug 'A'
-    logger.debug 'A'
-    logger.debug 'A'
-    logger.debug 'params[:member]'
-    logger.debug params[:member]
-
     @member = Member.find(params[:id])
     @member.assign_attributes(member_params)
     if @member.save
