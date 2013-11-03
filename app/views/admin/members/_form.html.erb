@@ -51,13 +51,15 @@
     <td><%= form.text_field :email %></td>
   </tr>
 
-  <tr>
-    <th>admin</th>
-    <td>
-      <%= form.check_box :administrator %>
-      <%= form.label :administrator, 'admin' %>
-    </td>
-  </tr>
+  <% if controller.kind_of?(Admin::MembersController) %>
+    <tr>
+      <th>admin</th>
+      <td>
+        <%= form.check_box :administrator %>
+        <%= form.label :administrator, 'admin' %>
+      </td>
+    </tr>
+  <% end %>
 
   <tr>
     <th><%= form.label :password %></th>
