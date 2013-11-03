@@ -11,12 +11,19 @@ class AccountsController < ApplicationController
 
   def update
     @member = @current_member
-    @member.assign_attributes(params[:member])
+    @member.assign_attributes(member_params)
     if @member.save
       redirect_to :account, notice: 'account updated.'
     else
       render 'edit'
     end
+  end
+
+  def member_params
+    params.require(:member).permit(
+      :number, :name, :full_name, :gender, 
+      :birthday, :email, :administrator, 
+      :password, :password_confirmation)
   end
 
 end
