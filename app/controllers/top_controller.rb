@@ -6,4 +6,8 @@ class TopController < ApplicationController
   def about
     @page_title = 'about page title'
   end
+
+  def not_found
+    raise ActionController::RoutingError, "no route...>< #{request.path.inspect}"
+  end
 end

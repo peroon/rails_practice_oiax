@@ -25,6 +25,10 @@ RailsPracticeOiax::Application.routes.draw do
     resources :articles
   end
 
+  #routing error
+  #match "*anything" => 'top#not_found'
+  get "*anything", to: 'top#not_found'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
