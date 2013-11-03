@@ -21,9 +21,15 @@ class AccountsController < ApplicationController
 
   def member_params
     params.require(:member).permit(
-      :number, :name, :full_name, :gender, 
-      :birthday, :email, :administrator, 
-      :password, :password_confirmation)
+      :number, 
+      :name, 
+      :full_name, 
+      :gender, 
+      :birthday, 
+      :email, 
+      #:administrator, 
+      :password, 
+      :password_confirmation)
   end
 
 end
