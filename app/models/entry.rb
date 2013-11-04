@@ -19,6 +19,10 @@ class Entry < ActiveRecord::Base
     def sidebar_entries(member, num=5)
       readable_for(member).order('posted_at DESC').limit(num)
     end
+
+    def status_options
+      STATUS_VALUES.map{ |status| [status_text(status), status] }
+    end
   end
 
 end

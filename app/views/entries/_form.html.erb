@@ -1,0 +1,18 @@
+<%= form.label :title %>
+<%= form.text_field :title %>
+
+<br>
+
+<%= form.label :body %>
+<%= form.text_area :body %>
+
+<br>
+
+<%= form.label :posted_at, for: 'entry_posted_at_li' %>
+<%= form.datetime_select :posted_at, use_month_numbers: true %>
+
+<br>
+
+<%= form.label :status %>
+<%= form.select :status, Entry.status_options %>
+

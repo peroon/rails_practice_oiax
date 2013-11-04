@@ -1,0 +1,8 @@
+<h1>entry show</h1>
+
+<% if @current_member == @entry.author %>
+  <%= link_to 'edit', [:edit, @entry] %>
+<% end %>
+
+<%= simple_format(@entry.body) %>
+<%= render 'footer', entry: @entry %>

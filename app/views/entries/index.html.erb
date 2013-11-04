@@ -1,6 +1,9 @@
+<h1>entries</h1>
+
+<%= link_to 'create new entry', :new_entry %><br><br>
+
 <% @entries.each do |entry| %>
-  <%= entry.title %>
-  <%= truncate(entry.body) %><br>
-  <%= link_to 'read more', entry %>
+  <%= entry.id %> : <%= entry.title %><%= truncate(entry.body) %><%= link_to 'read more', entry %>
+  <br>
 <% end %>
 <%= will_paginate @entries %>
