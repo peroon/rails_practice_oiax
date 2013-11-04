@@ -1,4 +1,9 @@
 class Entry < ActiveRecord::Base
+  has_many :votes, dependent: :destroy
+  has_many :voters, through: :votes, source: :member
+
+  accepts_nested_attributes_for :votes, allow_destroy: true
+
   belongs_to :author, class_name: "Member", foreign_key: 'member_id'
 
   STATUS_VALUES = %w(draft member_only public)

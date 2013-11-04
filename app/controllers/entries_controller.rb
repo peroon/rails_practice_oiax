@@ -56,9 +56,17 @@ class EntriesController < ApplicationController
       :body,
       :posted_at,
       :status,
+
+      vote_attributes: [:entry_id, :member_id] #memer_image
     )
   end
 
+  def like
+    @entry = Entry.published.find(params[:id])
+    #@current_member.voted_entries << @entry
+    @current_member.voted_entries << entry_params
+    redirect_to @entry, notice: 'voted'
+  end
 
 
 end

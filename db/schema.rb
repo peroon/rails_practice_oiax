@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103203318) do
+ActiveRecord::Schema.define(version: 20131104040256) do
 
   create_table "articles", force: true do |t|
     t.string   "title",                       null: false
@@ -58,5 +58,15 @@ ActiveRecord::Schema.define(version: 20131103203318) do
     t.string   "hashed_password"
     t.string   "password_digest"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "entry_id",   null: false
+    t.integer  "member_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["entry_id"], name: "index_votes_on_entry_id"
+  add_index "votes", ["member_id"], name: "index_votes_on_member_id"
 
 end

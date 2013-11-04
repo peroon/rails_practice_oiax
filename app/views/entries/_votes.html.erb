@@ -1,0 +1,17 @@
+<h1>votes template</h1>
+
+<h3>voter.name list</h3>
+<% @entry.voters.order("votes.created_at").each do |voter| %>
+  <%= voter.name %>
+<% end %>
+
+<h3>like button</h3>
+<% if @current_member.votable_for?(@entry) %>
+  <%= link_to 'like', [:like, @entry], method: :put, class: "button" %>
+<% else %>
+  you are not allowed to like to this entry.
+<% end %>
+
+
+
+

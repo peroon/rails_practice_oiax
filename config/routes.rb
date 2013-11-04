@@ -28,6 +28,11 @@ RailsPracticeOiax::Application.routes.draw do
     resources :articles
   end
 
+  resources :entries do
+    member {put 'like', 'unlike'}
+    collection {get 'voted'}
+  end
+
   #routing error
   #match "*anything" => 'top#not_found'
   get "*anything", to: 'top#not_found'

@@ -5,3 +5,10 @@
   <%= link_to 'edit', [:edit, entry] %>
   <%= link_to 'delete', entry, method: :delete, confirm: 'really?' %>
 <% end %>
+
+<br>
+<% if (count = entry.votes.count) > 0 %>
+  like num <%= count %>
+<% else %>
+    no votes
+<% end %>
